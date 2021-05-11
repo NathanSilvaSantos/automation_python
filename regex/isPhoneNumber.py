@@ -1,5 +1,8 @@
 # Verificar se uma string é um número de telefone
-# de acordo com o padrão estadunidense 000-000-0000
+# de acordo com o padrão brasileiro (00)00000-0000
+
+# Permite a criação de expressões regulares
+import re
 
 def isPhoneNumber(text):
     if len(text) != 12:
@@ -26,11 +29,12 @@ def isPhoneNumber(text):
     return True
 
 
-message = "Me ligue em 415-555-1011 amanhã. 415-555-9999 é meu escritório"
+message = "Meu número é (19)99999-0000."
 
-for i in range(len(message)):
-    chunk = message[i:i+12]
-    if isPhoneNumber(chunk):
-        print("Número de telefone encontrado: " + chunk)
+phoneNumRegex = re.compile(r'\(\d{2}\)\d{5}-\d{4}') # Retorna um objeto regex de acordo com o padrão
+
+matchNumber = phoneNumRegex.search(message)
+
+print("Número de telefone encontrado: " + matchNumber.group())
         
 print("Finalizado")
