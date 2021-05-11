@@ -11,3 +11,13 @@ print(mo1.group())
 # Imprime Superman pois foi o primeiro encontrado
 mo2 = heroRegex.search('Superman and Batman')
 print(mo2.group())
+
+# Pipe também pode ser usado para fazer correspôndencia entre diversos padrões
+# dentro da mesma regex
+
+superRegex = re.compile(r'Super(man|woman|boy)')
+mo = superRegex.search('O Superboy é um clone')
+# Exibe todo o resultado
+print(mo.group())
+# Exibe apenas o grupo especificado dentro do parenteses
+print(mo.group(1))
