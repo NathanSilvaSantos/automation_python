@@ -16,3 +16,10 @@ print(batwoman.group())
 newBatRegex = re.compile(r'Bat(wo)*man')
 mo = newBatRegex.search('The adventures of Batwowowowoman')
 print(mo.group())
+
+# Com o caractere + o grupo não é opicional e deve aparecer ao
+# menos uma vez na string
+
+superRegex = re.compile(r'Super(wo)+man')
+superwoman = superRegex.search('The New Superwoman')
+print(superwoman.group())
